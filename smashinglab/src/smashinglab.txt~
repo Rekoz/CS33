@@ -1,0 +1,96 @@
+First I downloaded the content using the command: 
+	wget http://cs.ucla.edu/classes/spring15/cs33/lab/sthttpd-2.27.0.tar.gz
+and untar it:
+	tar -xvzf sthttpd-2.27.0.tar.gz
+Entered the directory:
+	cd sthttpd-2.27.0/src
+Created a patch:
+	emacs patch
+	copied the patch content into this file
+And applied the patch:
+	patch -p1 < patch
+
+1. /usr/local/cs/bin was not at the start of my PATH, so I changed the PATH:
+	PATH=/usr/local/cs/bin:$PATH
+2. Then I configured it:
+	./configure \
+   	CFLAGS='-m32' \
+   	LDFLAGS="-Xlinker --rpath=/usr/local/cs/gcc-$(gcc -dumpversion)/lib"
+For SP:
+	make clean
+	make CFLAGS='-m32 -g3 -O2 -fno-inline -fstack-protector-strong'
+	mv src/thttpd src/thttpd-sp
+For AS:
+	make clean
+	make CFLAGS='-m32 -g3 -O2 -fno-inline -fsanitize=address'
+	mv src/thttpd src/thttpd-as
+For NO:
+	make clean
+	make CFLAGS='-m32 -g3 -O2 -fno-inline'
+	mv src/thttpd src/thttpd-no
+3. My port number for SP is 12964, for AS is 12965 and for NO is 12966.
+	src/thttpd-sp -p 12964 -D
+	src/thttpd-sp -p 12965 -D
+	src/thttpd-sp -p 12966 -D
+4. I verified that all three servers work by the following command:
+	curl http://localhost:12964/TODO
+	curl http://localhost:12965/TODO
+	curl http://localhost:12966/TODO
+
+5.
+To crash the program, I created a config file "a" with more than 100 characters in a line. Then I loaded the log file using the command:
+	src/thttpd-sp -p 12964 -D -C a
+Runn it under gdb:
+	gdb --args src/thttpd-sp -p 12964 -D -C a
+Set the break point at line 1189:
+	b 1189
+Then run it:
+	run
+To see which instruction caused it to crash:
+	nexti
+
+For SP:
+Backtraces:
+#0  0x00157cae in uw_frame_state_for ()
+   	from /usr/local/cs/gcc-4.9.2/lib/libgcc_s.so.1
+#1  0x00158b20 in _Unwind_Backtrace ()
+   from /usr/local/cs/gcc-4.9.2/lib/libgcc_s.so.1
+#2  0x00a77865 in backtrace () from /lib/libc.so.6
+#3  0x009e874b in __libc_message () from /lib/libc.so.6
+#4  0x00a7adad in __fortify_fail () from /lib/libc.so.6
+#5  0x00a7ad5a in __stack_chk_fail () from /lib/libc.so.6
+#6  0x0804b69f in read_config () at thttpd.c:1190
+Instruction causing the crash:
+	0x0804b69a <read_config+1434>:        e8 c9 e4 ff ff call   0x8049b68 <__stack_chk_fail@plt>
+Why:
+	Before returning from the read-config function, the stack smashing protector checks the stack integrity. It compares the canary value  "xor    %gs:0x14,%eax", which is not equal in this case. Thus stack smashing is detected, and the function __stack_chk_fail is called.
+
+6.
+I cannot crash this. The stack I got before the program exits is:
+#0  __asan_report_error ()   at ../../../../../gcc-4.9.2/libsanitizer/asan/asan_report.cc:711
+#1  0x0013dee6 in strchr () at ../../../../../gcc-4.9.2/libsanitizer/asan/asan_interceptors.cc:417
+#2  0x0804da70 in read_config () at thttpd.c:1018
+
+This is because the poisoned area is detected being accessed. So the AddressSanitizer calls the function __asan_report_error() and terminates the program.
+
+7.
+Similarly, backtrace for NO:
+	#0  0x0804b4ba in read_config () at thttpd.c:1190
+Instruction causing the crash:
+	0x0804b4ba <read_config+1274>:        c3     ret
+Why:
+	The return address is overwriten because of buffer overflow.
+
+8.
+I used these commands to generate the assembly code:
+	gcc -S -m32 -g3 -O2 -fno-inline -fstack-protector-strong -I./ -I./src/ -o src/thttpd-sp.s src/thttpd.c
+	gcc -S -m32 -g3 -O2 -fno-inline -fsanitize=address -I./ -I./src/ -o src/thttpd-as.s src/thttpd.c
+	gcc -S -m32 -g3 -O2 -fno-inline -I./ -I./src/ -o src/thttpd-no.s src/thttpd.c
+
+The assembly of SP and NO for handle_read() is the same, i.e. handle_read() is not protected by the option -fstack-protector-strong. The reason is that: "In addition to the protections offered by -fstack-protector, the new option will guard any function that declares any type or length of local array, even those in structs or unions. It will also protect functions that use a local variable's address in a function argument or on the right-hand side of an assignment. In addition, any function that uses local register variables will be protected." However handle_read() satisfies none of these requirements.
+
+However, AS does not have sunch kind of requirements. It poisons the memory around malloc-ed regions. Once the poisoned memory is accessed, it immediately calls __asan_report_load4 and terminates the program.
+
+9.
+My exploit uses the way of replacing return address with the function shared library function unlink()'s address to avoid NX bit problem. I passed the string "./target.txt" into the buffer and replaced 4($esp) with the address of the string. However it only works within gdb, i.e. does not work with stack randomization.
+I run my exploit on lnxsrv01.

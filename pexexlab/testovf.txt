@@ -1,0 +1,32 @@
+-O2:
+pushl   %ebp
+xorl    %eax, %eax
+movl    %esp, %ebp
+popl    %ebp
+ret
+This returns 0. It does not do any addition. Because big+1 can never be less than big, it simply returns 0.
+
+-O2 -ftrapv
+pushl   %ebp
+movl    %esp, %ebp
+subl    $8, %esp
+movl    big, %eax
+leave
+leal    1(%eax), %edx
+cmpl    %edx, %eax
+setg    %al
+movzbl  %al, %eax
+ret
+This returns 1. It should have done trapping, but because of the optimization, it actually does not trap and returns the same wrong result as -fwrapv.
+
+-O2 -fwrapv
+movl    big, %eax
+pushl   %ebp
+movl    %esp, %ebp
+popl    %ebp
+leal    1(%eax), %edx
+cmpl    %edx, %eax
+setg    %al
+movzbl  %al, %eax
+ret
+This returns 1. There is an overflow when adding 1 to eax. Under -fwrapv, it simply throws away the top bits, resulting in the smallest 32-bit integer, which is smaller than the biggest 32-bit integer.

@@ -1,0 +1,2072 @@
+--- a	2015-05-13 18:48:46.585142000 -0700
++++ c	2015-05-13 18:49:48.323774000 -0700
+@@ -1,128 +1,65 @@
+ handle_read:
+-.LASANPC18:
+ .LFB18:
+ 	.loc 1 1586 0
+ 	.cfi_startproc
+-.LVL635:
++.LVL375:
+ 	pushl	%ebp
+ 	.cfi_def_cfa_offset 8
+ 	.cfi_offset 5, -8
+ 	pushl	%edi
+ 	.cfi_def_cfa_offset 12
+ 	.cfi_offset 7, -12
+-	movl	%eax, %edi
++	movl	%edx, %edi
+ 	pushl	%esi
+ 	.cfi_def_cfa_offset 16
+ 	.cfi_offset 6, -16
+ 	pushl	%ebx
+ 	.cfi_def_cfa_offset 20
+ 	.cfi_offset 3, -20
++	movl	%eax, %esi
++	subl	$12, %esp
++	.cfi_def_cfa_offset 32
+ 	.loc 1 1589 0
+-	leal	8(%eax), %eax
+-.LVL636:
+-	.loc 1 1586 0
+-	subl	$44, %esp
+-	.cfi_def_cfa_offset 64
+-	.loc 1 1586 0
+-	movl	%edx, 12(%esp)
+-	.loc 1 1589 0
+-	movl	%eax, %edx
+-.LVL637:
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1634
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L1977
+-.L1634:
+-	movl	8(%edi), %ebx
+-.LVL638:
++	movl	8(%eax), %ebx
++.LVL376:
+ 	.loc 1 1592 0
+-	leal	144(%ebx), %esi
+-	movl	%esi, %eax
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1635
+-	movl	%esi, %edx
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L1978
+-.L1635:
+-	leal	140(%ebx), %ebp
+-	movl	144(%ebx), %edx
+-	movl	%ebp, %eax
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1636
+-	movl	%ebp, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%al, %cl
+-	jge	.L1979
+-.L1636:
+-	movl	140(%ebx), %eax
+-	cmpl	%eax, %edx
+-	jb	.L1980
++	movl	144(%ebx), %eax
++.LVL377:
++	movl	140(%ebx), %ecx
++	cmpl	%ecx, %eax
++	jb	.L406
+ 	.loc 1 1594 0
+-	cmpl	$5000, %eax
+-	jbe	.L1638
+-	.loc 1 1596 0
+-	movl	$httpd_err400form, %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1639
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jge	.L1981
+-.L1639:
+-	movl	$httpd_err400title, %eax
+-	movl	httpd_err400form, %ecx
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1659
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jge	.L1982
+-.L1659:
++	cmpl	$5000, %ecx
++	jbe	.L434
++.LVL378:
++.L433:
+ 	.loc 1 1637 0
+ 	subl	$8, %esp
+-	.cfi_def_cfa_offset 72
+-	pushl	$.LC63
+-	.cfi_def_cfa_offset 76
+-	pushl	%ecx
+-	.cfi_def_cfa_offset 80
+-	pushl	$.LC63
+-	.cfi_def_cfa_offset 84
++	.cfi_def_cfa_offset 40
++	pushl	$.LC60
++	.cfi_def_cfa_offset 44
++	pushl	httpd_err400form
++	.cfi_def_cfa_offset 48
++	pushl	$.LC60
++	.cfi_def_cfa_offset 52
+ 	pushl	httpd_err400title
+-	.cfi_def_cfa_offset 88
++	.cfi_def_cfa_offset 56
+ 	pushl	$400
+-	.cfi_def_cfa_offset 92
+-.L1976:
++	.cfi_def_cfa_offset 60
++.L432:
+ 	.loc 1 1652 0
+ 	pushl	%ebx
+-	.cfi_def_cfa_offset 96
++	.cfi_def_cfa_offset 64
+ 	call	httpd_send_err
+-.LVL639:
++.LVL379:
+ 	.loc 1 1654 0
+-	movl	44(%esp), %edx
+-	movl	%edi, %eax
++	movl	%edi, %edx
++	movl	%esi, %eax
+ 	.loc 1 1703 0
+-	addl	$76, %esp
++	addl	$44, %esp
+ 	.cfi_def_cfa_offset 20
+-.LVL640:
+-.L1974:
++.LVL380:
++.L429:
+ 	popl	%ebx
+ 	.cfi_restore 3
+ 	.cfi_def_cfa_offset 16
+@@ -135,1264 +72,300 @@
+ 	popl	%ebp
+ 	.cfi_restore 5
+ 	.cfi_def_cfa_offset 4
+-.LBB4:
++.LBB3:
+ 	.loc 1 1685 0
+ 	jmp	finish_connection
+-.LVL641:
++.LVL381:
+ 	.p2align 4,,10
+ 	.p2align 3
+-.L1638:
+-	.cfi_def_cfa_offset 64
++.L434:
++	.cfi_def_cfa_offset 32
+ 	.cfi_offset 3, -20
+ 	.cfi_offset 5, -8
+ 	.cfi_offset 6, -16
+ 	.cfi_offset 7, -12
+-.LBE4:
++.LBE3:
+ 	.loc 1 1600 0
++	leal	140(%ebx), %eax
+ 	subl	$4, %esp
+-	.cfi_def_cfa_offset 68
+-	addl	$1000, %eax
++	.cfi_def_cfa_offset 36
++	addl	$1000, %ecx
++	pushl	%ecx
++	.cfi_def_cfa_offset 40
+ 	pushl	%eax
+-	.cfi_def_cfa_offset 72
++	.cfi_def_cfa_offset 44
+ 	leal	136(%ebx), %eax
+-	pushl	%ebp
+-	.cfi_def_cfa_offset 76
+-	movl	%eax, 28(%esp)
+ 	pushl	%eax
+-	.cfi_def_cfa_offset 80
++	.cfi_def_cfa_offset 48
+ 	call	httpd_realloc_str
+-.LVL642:
+-	movl	%ebp, %eax
++.LVL382:
++	movl	140(%ebx), %ecx
++	movl	144(%ebx), %eax
+ 	addl	$16, %esp
+-	.cfi_def_cfa_offset 64
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1641
+-	movl	%ebp, %edx
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L1983
+-.L1641:
+-	movl	%esi, %edx
+-	movl	140(%ebx), %eax
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1642
+-	movl	%esi, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L1984
+-.L1642:
+-	movl	144(%ebx), %edx
+-.L1637:
+-	.loc 1 1606 0
+-	movl	16(%esp), %ebp
+-	.loc 1 1605 0
+-	subl	%edx, %eax
+-	movl	%eax, 20(%esp)
+-	.loc 1 1606 0
+-	movl	%ebp, %ecx
+-	shrl	$3, %ecx
+-	movzbl	536870912(%ecx), %ecx
+-	testb	%cl, %cl
+-	je	.L1643
+-	andl	$7, %ebp
+-	addl	$3, %ebp
+-	movl	%ebp, %eax
+-	cmpb	%cl, %al
+-	jge	.L1985
+-.L1643:
++	.cfi_def_cfa_offset 32
++.L406:
+ 	.loc 1 1605 0
+-	leal	448(%ebx), %ebp
+-	addl	136(%ebx), %edx
+-	movl	%ebp, %ecx
+-	shrl	$3, %ecx
+-	movzbl	536870912(%ecx), %ecx
+-	testb	%cl, %cl
+-	je	.L1644
+-	movl	%ebp, %eax
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%cl, %al
+-	jge	.L1986
+-.L1644:
+ 	subl	$4, %esp
+-	.cfi_def_cfa_offset 68
+-	pushl	24(%esp)
+-	.cfi_def_cfa_offset 72
+-	pushl	%edx
+-	.cfi_def_cfa_offset 76
++	.cfi_def_cfa_offset 36
++	subl	%eax, %ecx
++	pushl	%ecx
++	.cfi_def_cfa_offset 40
++	addl	136(%ebx), %eax
++	pushl	%eax
++	.cfi_def_cfa_offset 44
+ 	pushl	448(%ebx)
+-	.cfi_def_cfa_offset 80
++	.cfi_def_cfa_offset 48
+ 	call	read
+-.LVL643:
++.LVL383:
+ 	.loc 1 1608 0
+ 	addl	$16, %esp
+-	.cfi_def_cfa_offset 64
++	.cfi_def_cfa_offset 32
+ 	testl	%eax, %eax
+-	je	.L1987
++	je	.L433
+ 	.loc 1 1614 0
+-	js	.L1988
+-	.loc 1 1628 0
+-	movl	%esi, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1653
+-	movl	%esi, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L1989
+-.L1653:
+-	.loc 1 1629 0
+-	movl	12(%esp), %edx
++	js	.L435
+ 	.loc 1 1628 0
+ 	addl	%eax, 144(%ebx)
+ 	.loc 1 1629 0
+-	movl	%edx, %eax
+-.LVL644:
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1654
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L1990
+-.L1654:
+-	movl	12(%esp), %eax
+-	movl	(%eax), %eax
+-	movl	%eax, 16(%esp)
+-	leal	68(%edi), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1655
+-	movl	%eax, %esi
+-	andl	$7, %esi
+-	addl	$3, %esi
+-	movl	%esi, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L1991
+-.L1655:
+-	movl	16(%esp), %eax
++	movl	(%edi), %eax
++.LVL384:
+ 	.loc 1 1632 0
+ 	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
++	.cfi_def_cfa_offset 44
++	pushl	%ebx
++	.cfi_def_cfa_offset 48
+ 	.loc 1 1629 0
+-	movl	%eax, 68(%edi)
++	movl	%eax, 68(%esi)
+ 	.loc 1 1632 0
+-	pushl	%ebx
+-	.cfi_def_cfa_offset 80
+ 	call	httpd_got_request
+-.LVL645:
++.LVL385:
+ 	addl	$16, %esp
+-	.cfi_def_cfa_offset 64
++	.cfi_def_cfa_offset 32
+ 	testl	%eax, %eax
+-	je	.L1633
++	je	.L405
+ 	cmpl	$2, %eax
+-	jne	.L1972
+-	.loc 1 1637 0
+-	movl	$httpd_err400form, %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1658
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jl	.L1658
++	je	.L433
++	.loc 1 1643 0
+ 	subl	$12, %esp
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err400form
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL646:
+-	.p2align 4,,10
+-	.p2align 3
+-.L2010:
+-	.cfi_restore_state
+-	.loc 1 1696 0
+-	movl	%edi, %eax
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1690
++	.cfi_def_cfa_offset 44
++	pushl	%ebx
++	.cfi_def_cfa_offset 48
++	call	httpd_parse_request
++.LVL386:
++	addl	$16, %esp
++	.cfi_def_cfa_offset 32
++	testl	%eax, %eax
++	js	.L430
++	.loc 1 1650 0
++	movl	%esi, %eax
++	call	check_throttles
++.LVL387:
++	testl	%eax, %eax
++	je	.L436
++	.loc 1 1659 0
++	subl	$8, %esp
++	.cfi_def_cfa_offset 40
++	pushl	%edi
++	.cfi_def_cfa_offset 44
++	pushl	%ebx
++	.cfi_def_cfa_offset 48
++	call	httpd_start_request
++.LVL388:
++	addl	$16, %esp
++	.cfi_def_cfa_offset 32
++	testl	%eax, %eax
++	js	.L430
++	.loc 1 1667 0
++	movl	336(%ebx), %edx
++	testl	%edx, %edx
++	je	.L416
++	.loc 1 1669 0
++	movl	344(%ebx), %eax
++	movl	%eax, 92(%esi)
++	.loc 1 1670 0
++	movl	348(%ebx), %eax
++	addl	$1, %eax
++	movl	%eax, 88(%esi)
++.L417:
++	.loc 1 1678 0
++	movl	452(%ebx), %eax
++	testl	%eax, %eax
++	je	.L437
++	.loc 1 1688 0
++	movl	88(%esi), %eax
++	cmpl	%eax, 92(%esi)
++	jl	.L438
++.LVL389:
++.L430:
++.LBB4:
++	.loc 1 1685 0
+ 	movl	%edi, %edx
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L1992
+-.L1690:
+-	.loc 1 1697 0
+-	movl	12(%esp), %edx
+-	.loc 1 1696 0
+-	movl	$2, (%edi)
++	movl	%esi, %eax
++.LBE4:
++	.loc 1 1703 0
++	addl	$12, %esp
++	.cfi_remember_state
++	.cfi_def_cfa_offset 20
++	jmp	.L429
++.LVL390:
++.L438:
++	.cfi_restore_state
+ 	.loc 1 1697 0
+-	movl	%edx, %eax
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1691
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L1993
+-.L1691:
+-	movl	12(%esp), %eax
+-	movl	(%eax), %eax
+-	movl	%eax, 12(%esp)
+-.LVL647:
+-	leal	64(%edi), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1692
+-	movl	%eax, %esi
+-	andl	$7, %esi
+-	addl	$3, %esi
+-	movl	%esi, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L1994
+-.L1692:
+-	movl	12(%esp), %eax
+-	movl	%eax, 64(%edi)
+-	.loc 1 1698 0
+-	leal	80(%edi), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1693
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L1995
+-.L1693:
+-	.loc 1 1701 0
+-	movl	%ebp, %eax
+-	.loc 1 1698 0
+-	movl	$0, 80(%edi)
+-.LVL648:
++	movl	(%edi), %eax
+ 	.loc 1 1701 0
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1694
+-	movl	%ebp, %edx
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L1996
+-.L1694:
+ 	subl	$12, %esp
+-	.cfi_def_cfa_offset 76
++	.cfi_def_cfa_offset 44
+ 	pushl	448(%ebx)
+-	.cfi_def_cfa_offset 80
++	.cfi_def_cfa_offset 48
++	.loc 1 1696 0
++	movl	$2, (%esi)
++	.loc 1 1698 0
++	movl	$0, 80(%esi)
++.LVL391:
++	.loc 1 1697 0
++	movl	%eax, 64(%esi)
++	.loc 1 1701 0
+ 	call	fdwatch_del_fd
+-.LVL649:
++.LVL392:
+ 	.loc 1 1702 0
+-	movl	%ebp, %eax
+-	addl	$16, %esp
+-	.cfi_def_cfa_offset 64
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1695
+-	movl	%ebp, %edx
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L1997
+-.L1695:
+-	subl	$4, %esp
+-	.cfi_def_cfa_offset 68
++	addl	$12, %esp
++	.cfi_def_cfa_offset 36
+ 	pushl	$1
+-	.cfi_def_cfa_offset 72
+-	pushl	%edi
+-	.cfi_def_cfa_offset 76
++	.cfi_def_cfa_offset 40
++	pushl	%esi
++	.cfi_def_cfa_offset 44
+ 	pushl	448(%ebx)
+-	.cfi_def_cfa_offset 80
++	.cfi_def_cfa_offset 48
+ 	call	fdwatch_add_fd
+-.LVL650:
++.LVL393:
+ 	addl	$16, %esp
+-	.cfi_def_cfa_offset 64
+-.LVL651:
++	.cfi_def_cfa_offset 32
++.LVL394:
+ 	.p2align 4,,10
+ 	.p2align 3
+-.L1633:
++.L405:
+ 	.loc 1 1703 0
+-	addl	$44, %esp
++	addl	$12, %esp
+ 	.cfi_remember_state
+ 	.cfi_def_cfa_offset 20
+ 	popl	%ebx
+ 	.cfi_restore 3
+ 	.cfi_def_cfa_offset 16
+-.LVL652:
++.LVL395:
+ 	popl	%esi
+ 	.cfi_restore 6
+ 	.cfi_def_cfa_offset 12
++.LVL396:
+ 	popl	%edi
+ 	.cfi_restore 7
+ 	.cfi_def_cfa_offset 8
+-.LVL653:
++.LVL397:
+ 	popl	%ebp
+ 	.cfi_restore 5
+ 	.cfi_def_cfa_offset 4
+-.LVL654:
+ 	ret
+-.LVL655:
++.LVL398:
+ 	.p2align 4,,10
+ 	.p2align 3
+-.L1980:
++.L435:
+ 	.cfi_restore_state
+-	leal	136(%ebx), %ecx
+-	movl	%ecx, 16(%esp)
+-	jmp	.L1637
+-.LVL656:
+-	.p2align 4,,10
+-	.p2align 3
+-.L1988:
+ 	.loc 1 1621 0
+ 	call	__errno_location
+-.LVL657:
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1649
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L1998
+-.L1649:
++.LVL399:
+ 	movl	(%eax), %eax
+ 	cmpl	$11, %eax
+-	je	.L1633
++	je	.L405
+ 	cmpl	$4, %eax
+-	je	.L1633
+-	.loc 1 1623 0
+-	movl	$httpd_err400form, %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1651
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jl	.L1651
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err400form
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL658:
+-	.p2align 4,,10
+-	.p2align 3
+-.L1658:
+-	.cfi_restore_state
+-	.loc 1 1637 0
+-	movl	$httpd_err400title, %eax
+-	movl	httpd_err400form, %ecx
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1659
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jl	.L1659
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err400title
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL659:
++	jne	.L433
++	jmp	.L405
+ 	.p2align 4,,10
+ 	.p2align 3
+-.L1651:
+-	.cfi_restore_state
+-	.loc 1 1623 0
+-	movl	$httpd_err400title, %eax
+-	movl	httpd_err400form, %ecx
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1659
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jl	.L1659
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err400title
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL660:
+-	.p2align 4,,10
+-	.p2align 3
+-.L1987:
+-	.cfi_restore_state
+-	.loc 1 1610 0
+-	movl	$httpd_err400form, %eax
+-.LVL661:
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1646
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jge	.L1999
+-.L1646:
+-	movl	$httpd_err400title, %eax
+-	movl	httpd_err400form, %ecx
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1659
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jl	.L1659
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err400title
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL662:
+-	.p2align 4,,10
+-	.p2align 3
+-.L1972:
+-	.cfi_restore_state
+-	.loc 1 1643 0
+-	subl	$12, %esp
+-	.cfi_def_cfa_offset 76
+-	pushl	%ebx
+-	.cfi_def_cfa_offset 80
+-	call	httpd_parse_request
+-.LVL663:
+-	addl	$16, %esp
+-	.cfi_def_cfa_offset 64
+-	testl	%eax, %eax
+-	js	.L1975
+-	.loc 1 1650 0
+-	movl	%edi, %eax
+-	call	check_throttles
+-.LVL664:
+-	testl	%eax, %eax
+-	je	.L2000
+-	.loc 1 1659 0
+-	subl	$8, %esp
+-	.cfi_def_cfa_offset 72
+-	pushl	20(%esp)
+-	.cfi_def_cfa_offset 76
+-	pushl	%ebx
+-	.cfi_def_cfa_offset 80
+-	call	httpd_start_request
+-.LVL665:
+-	addl	$16, %esp
+-	.cfi_def_cfa_offset 64
+-	testl	%eax, %eax
+-	js	.L1975
+-	.loc 1 1667 0
+-	leal	336(%ebx), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1666
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2001
+-.L1666:
+-	movl	336(%ebx), %edx
+-	testl	%edx, %edx
+-	je	.L1667
+-	.loc 1 1669 0
+-	leal	344(%ebx), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1668
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2002
+-.L1668:
+-	movl	344(%ebx), %eax
+-	movl	%eax, 16(%esp)
+-	leal	92(%edi), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1669
+-	movl	%eax, %esi
+-	andl	$7, %esi
+-	addl	$3, %esi
+-	movl	%esi, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2003
+-.L1669:
+-	movl	16(%esp), %eax
+-	movl	%eax, 92(%edi)
+-	.loc 1 1670 0
+-	leal	348(%ebx), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1670
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2004
+-.L1670:
+-	leal	88(%edi), %esi
+-	movl	348(%ebx), %eax
+-	movl	%esi, %edx
+-	shrl	$3, %edx
+-	addl	$1, %eax
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1676
+-	movl	%esi, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2005
+-.L1676:
+-	.loc 1 1675 0
+-	movl	%eax, 88(%edi)
+-.L1672:
+-	.loc 1 1678 0
+-	leal	452(%ebx), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1677
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2006
+-.L1677:
+-	movl	452(%ebx), %eax
+-	testl	%eax, %eax
+-	je	.L2007
+-	.loc 1 1688 0
+-	leal	92(%edi), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1688
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2008
+-.L1688:
+-	movl	%esi, %eax
+-	movl	92(%edi), %edx
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1689
+-	movl	%esi, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%al, %cl
+-	jge	.L2009
+-.L1689:
+-	cmpl	88(%edi), %edx
+-	jl	.L2010
+-.LVL666:
+-.L1975:
+-.LBB5:
+-	.loc 1 1685 0
+-	movl	12(%esp), %edx
+-	movl	%edi, %eax
+-.LBE5:
+-	.loc 1 1703 0
+-	addl	$44, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 20
+-	jmp	.L1974
+-.LVL667:
+-	.p2align 4,,10
+-	.p2align 3
+-.L2000:
+-	.cfi_restore_state
++.L436:
+ 	.loc 1 1652 0
+-	leal	172(%ebx), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1662
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2011
+-.L1662:
+-	movl	$httpd_err503form, %eax
+-	movl	172(%ebx), %esi
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1663
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jge	.L2012
+-.L1663:
+-	movl	$httpd_err503title, %eax
+-	movl	httpd_err503form, %ecx
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1664
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jge	.L2013
+-.L1664:
+ 	subl	$8, %esp
+ 	.cfi_remember_state
+-	.cfi_def_cfa_offset 72
+-	pushl	%esi
+-	.cfi_def_cfa_offset 76
+-	pushl	%ecx
+-	.cfi_def_cfa_offset 80
+-	pushl	$.LC63
+-	.cfi_def_cfa_offset 84
++	.cfi_def_cfa_offset 40
++	pushl	172(%ebx)
++	.cfi_def_cfa_offset 44
++	pushl	httpd_err503form
++	.cfi_def_cfa_offset 48
++	pushl	$.LC60
++	.cfi_def_cfa_offset 52
+ 	pushl	httpd_err503title
+-	.cfi_def_cfa_offset 88
++	.cfi_def_cfa_offset 56
+ 	pushl	$503
+-	.cfi_def_cfa_offset 92
+-	jmp	.L1976
+-.L1979:
+-	.cfi_restore_state
+-	.loc 1 1592 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%ebp
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL668:
+-.L1978:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%esi
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL669:
+-.L1977:
+-	.cfi_restore_state
+-	.loc 1 1589 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL670:
+-.L1983:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%ebp
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL671:
+-.L1981:
+-	.cfi_restore_state
+-	.loc 1 1596 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err400form
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL672:
+-.L1982:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err400title
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL673:
+-.L1998:
+-	.cfi_restore_state
+-	.loc 1 1621 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL674:
+-.L1989:
+-	.cfi_restore_state
+-	.loc 1 1628 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%esi
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL675:
+-.L1990:
+-	.cfi_restore_state
+-	.loc 1 1629 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	24(%esp)
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL676:
+-.L1991:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_store4
+-.LVL677:
+-.L1984:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%esi
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL678:
++	.cfi_def_cfa_offset 60
++	jmp	.L432
+ 	.p2align 4,,10
+ 	.p2align 3
+-.L1667:
++.L416:
+ 	.cfi_restore_state
+ 	.loc 1 1672 0
+-	leal	164(%ebx), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1673
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2014
+-.L1673:
+ 	movl	164(%ebx), %eax
+ 	.loc 1 1673 0
+-	leal	88(%edi), %esi
+-	.loc 1 1672 0
++	movl	$0, %edx
+ 	testl	%eax, %eax
+-	js	.L2015
+-	.loc 1 1675 0
+-	movl	%esi, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1676
+-	movl	%esi, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jl	.L1676
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%esi
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_store4
+-.LVL679:
+-	.p2align 4,,10
+-	.p2align 3
+-.L2007:
+-	.cfi_restore_state
+-.LBB6:
++	cmovs	%edx, %eax
++	movl	%eax, 88(%esi)
++	jmp	.L417
++.L437:
++.LVL400:
++.LBB5:
+ 	.loc 1 1682 0 discriminator 1
+-	leal	52(%edi), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1679
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2016
+-.L1679:
+-	movl	52(%edi), %eax
+-	testl	%eax, %eax
+-	movl	%eax, 20(%esp)
+-	jle	.L2017
+-	movl	throttles, %eax
+-	movl	%eax, %esi
+-	leal	168(%ebx), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1683
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2018
+-.L1683:
+-	movl	168(%ebx), %eax
+-	.loc 1 1682 0 is_stmt 0
+-	movl	%edi, 28(%esp)
+-	xorl	%ebp, %ebp
+-	movl	%eax, 16(%esp)
+-	leal	12(%edi), %eax
+-	movl	%esi, %edi
+-.LVL680:
++	movl	52(%esi), %edx
++	testl	%edx, %edx
++	jle	.L439
++	movl	throttles, %ecx
++	movl	168(%ebx), %ebx
++.LVL401:
++	leal	12(%esi), %eax
++	leal	12(%esi,%edx,4), %ebp
++.LVL402:
+ 	.p2align 4,,10
+ 	.p2align 3
+-.L1686:
+-	.loc 1 1683 0 is_stmt 1 discriminator 3
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1684
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2019
+-.L1684:
+-	movl	(%eax), %edx
+-	leal	(%edx,%edx,2), %edx
+-	leal	(%edi,%edx,8), %edx
+-	leal	16(%edx), %esi
+-	movl	%esi, %ebx
+-	movl	%esi, 24(%esp)
+-	shrl	$3, %ebx
+-	movzbl	536870912(%ebx), %ebx
+-	testb	%bl, %bl
+-	je	.L1685
+-	andl	$7, %esi
+-	addl	$3, %esi
+-	movl	%esi, %ecx
+-	cmpb	%bl, %cl
+-	jge	.L2020
+-.L1685:
+-	movl	16(%esp), %esi
+-	.loc 1 1682 0 discriminator 3
+-	addl	$1, %ebp
+-.LVL681:
++.L422:
+ 	.loc 1 1683 0 discriminator 3
+-	addl	%esi, 16(%edx)
++	movl	(%eax), %edx
+ 	addl	$4, %eax
++	leal	(%edx,%edx,2), %edx
++	addl	%ebx, 16(%ecx,%edx,8)
+ 	.loc 1 1682 0 discriminator 3
+-	cmpl	20(%esp), %ebp
+-	jne	.L1686
+-	movl	28(%esp), %edi
+-.LVL682:
+-.L1682:
+-	.loc 1 1684 0
+-	leal	92(%edi), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L1687
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2021
+-.L1687:
+-	movl	16(%esp), %eax
+-	movl	%eax, 92(%edi)
+-	jmp	.L1975
+-.LVL683:
+-.L2015:
+-.LBE6:
+-	.loc 1 1673 0
+-	movl	%esi, %eax
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L1675
+-	movl	%esi, %edx
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L2022
+-.L1675:
+-	movl	$0, 88(%edi)
+-	jmp	.L1672
+-.LVL684:
+-.L2017:
+-	leal	168(%ebx), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %ecx
+-	testb	%cl, %cl
+-	je	.L1681
+-	movl	%eax, %edx
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%cl, %dl
+-	jge	.L2023
+-.L1681:
+-	movl	168(%ebx), %eax
+-	movl	%eax, 16(%esp)
+-	jmp	.L1682
+-.LVL685:
+-.L2020:
+-	movl	24(%esp), %ecx
+-.LBB7:
+-	.loc 1 1683 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%ecx
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL686:
+-.L2021:
+-	.cfi_restore_state
++	cmpl	%ebp, %eax
++	jne	.L422
++.L421:
+ 	.loc 1 1684 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_store4
+-.LVL687:
+-.L2019:
+-	.cfi_restore_state
+-	.loc 1 1683 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL688:
+-.L2023:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL689:
+-.L2014:
+-	.cfi_restore_state
+-.LBE7:
+-	.loc 1 1672 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL690:
+-.L1992:
+-	.cfi_restore_state
+-	.loc 1 1696 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%edi
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_store4
+-.LVL691:
+-.L1993:
+-	.cfi_restore_state
+-	.loc 1 1697 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	24(%esp)
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL692:
+-.L1994:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_store4
+-.LVL693:
+-.L1995:
+-	.cfi_restore_state
+-	.loc 1 1698 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_store4
+-.LVL694:
+-.L1996:
+-	.cfi_restore_state
+-	.loc 1 1701 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%ebp
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL695:
+-.L2016:
+-	.cfi_restore_state
+-.LBB8:
+-	.loc 1 1682 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL696:
+-.L2018:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL697:
+-.L2013:
+-	.cfi_restore_state
+-.LBE8:
+-	.loc 1 1652 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err503title
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL698:
+-.L1999:
+-	.cfi_restore_state
+-	.loc 1 1610 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err400form
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL699:
+-.L2009:
+-	.cfi_restore_state
+-	.loc 1 1688 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%esi
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL700:
+-.L2022:
+-	.cfi_restore_state
+-	.loc 1 1673 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%esi
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_store4
+-.LVL701:
+-.L1997:
+-	.cfi_restore_state
+-	.loc 1 1702 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%ebp
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL702:
+-.L2008:
+-	.cfi_restore_state
+-	.loc 1 1688 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL703:
+-.L2005:
+-	.cfi_restore_state
+-	.loc 1 1670 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%esi
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_store4
+-.LVL704:
+-.L2006:
+-	.cfi_restore_state
+-	.loc 1 1678 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL705:
+-.L1985:
+-	.cfi_restore_state
+-	.loc 1 1606 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	28(%esp)
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL706:
+-.L2002:
+-	.cfi_restore_state
+-	.loc 1 1669 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL707:
+-.L2003:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_store4
+-.LVL708:
+-.L2004:
+-	.cfi_restore_state
+-	.loc 1 1670 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL709:
+-.L2011:
+-	.cfi_restore_state
+-	.loc 1 1652 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL710:
+-.L2012:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	$httpd_err503form
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL711:
+-.L1986:
+-	.cfi_restore_state
+-	.loc 1 1605 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 76
+-	pushl	%ebp
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL712:
+-.L2001:
+-	.cfi_restore_state
+-	.loc 1 1667 0
+-	subl	$12, %esp
+-	.cfi_def_cfa_offset 76
+-	pushl	%eax
+-	.cfi_def_cfa_offset 80
+-	call	__asan_report_load4
+-.LVL713:
++	movl	%ebx, 92(%esi)
++	jmp	.L430
++.LVL403:
++.L439:
++	movl	168(%ebx), %ebx
++.LVL404:
++	jmp	.L421
++.LBE5:
+ 	.cfi_endproc
+ .LFE18:
+ 	.size	handle_read, .-handle_read
+ 	.section	.text.unlikely
+-.LCOLDE121:
++.LCOLDE117:
+ 	.text
+-.LHOTE121:
+-	.section	.rodata
+-	.align 32
+-.LC122:
++.LHOTE117:
++	.section	.rodata.str1.4
++	.align 4
++.LC118:
+ 	.string	"%.80s connection timed out reading"
+-	.zero	61
+-	.align 32
+-.LC123:
++	.align 4
++.LC119:
+ 	.string	"%.80s connection timed out sending"
+-	.zero	61
+ 	.section	.text.unlikely
+-.LCOLDB124:
++.LCOLDB120:
+ 	.text
+-.LHOTB124:
++.LHOTB120:
+ 	.p2align 4,,15
+ 	.type	idle, @function
+ idle:
+-.LASANPC27:
+ .LFB27:
+ 	.loc 1 2068 0
+ 	.cfi_startproc
+-.LVL714:
+ 	pushl	%ebp
+ 	.cfi_def_cfa_offset 8
+ 	.cfi_offset 5, -8
+@@ -1411,218 +384,100 @@
+ 	.loc 1 2072 0
+ 	xorl	%esi, %esi
+ 	.loc 1 2068 0
+-	subl	$28, %esp
+-	.cfi_def_cfa_offset 48
++	subl	$12, %esp
++	.cfi_def_cfa_offset 32
++	.loc 1 2072 0
++	movl	max_connects, %ecx
+ 	.loc 1 2068 0
+-	movl	52(%esp), %ebp
+-	.loc 1 2078 0
+-	movl	%ebp, %eax
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	movb	%al, 11(%esp)
++	movl	36(%esp), %ebp
+ 	.loc 1 2072 0
+-	movl	max_connects, %eax
+-	testl	%eax, %eax
+-	jg	.L2083
+-	jmp	.L2024
+-.LVL715:
++	testl	%ecx, %ecx
++	jg	.L447
++	jmp	.L440
+ 	.p2align 4,,10
+ 	.p2align 3
+-.L2111:
++.L452:
+ 	.loc 1 2075 0
+-	jl	.L2027
++	jl	.L442
+ 	cmpl	$3, %eax
+-	jg	.L2027
++	jg	.L442
+ 	.loc 1 2090 0
+-	movl	%ebp, %eax
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L2037
+-	cmpb	%al, 11(%esp)
+-	jge	.L2107
+-.L2037:
+-	leal	68(%ebx), %edx
+ 	movl	0(%ebp), %eax
+-	movl	%edx, %ecx
+-	shrl	$3, %ecx
+-	movl	%eax, 4(%esp)
+-	movzbl	536870912(%ecx), %ecx
+-	testb	%cl, %cl
+-	je	.L2038
+-	movl	%edx, %eax
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%cl, %al
+-	jge	.L2108
+-.L2038:
+-	movl	4(%esp), %eax
+ 	subl	68(%ebx), %eax
+ 	cmpl	$299, %eax
+-	jg	.L2109
+-.L2027:
++	jg	.L451
++.L442:
+ 	.loc 1 2072 0 discriminator 2
+ 	addl	$1, %edi
+-.LVL716:
+ 	addl	$96, %esi
+ 	cmpl	%edi, max_connects
+-	jle	.L2024
+-.LVL717:
+-.L2083:
++	jle	.L440
++.L447:
+ 	.loc 1 2074 0
+ 	movl	connects, %ebx
+ 	addl	%esi, %ebx
+-.LVL718:
+ 	.loc 1 2075 0
+-	movl	%ebx, %eax
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L2026
+-	movl	%ebx, %edx
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L2110
+-.L2026:
+ 	movl	(%ebx), %eax
+ 	cmpl	$1, %eax
+-	jne	.L2111
++	jne	.L452
+ 	.loc 1 2078 0
+-	movl	%ebp, %eax
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L2030
+-	cmpb	%al, 11(%esp)
+-	jge	.L2112
+-.L2030:
+-	leal	68(%ebx), %edx
+ 	movl	0(%ebp), %eax
+-	movl	%edx, %ecx
+-	shrl	$3, %ecx
+-	movl	%eax, 4(%esp)
+-	movzbl	536870912(%ecx), %ecx
+-	testb	%cl, %cl
+-	je	.L2031
+-	movl	%edx, %eax
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%cl, %al
+-	jge	.L2113
+-.L2031:
+-	movl	4(%esp), %eax
+ 	subl	68(%ebx), %eax
+ 	cmpl	$59, %eax
+-	jle	.L2027
+-	.loc 1 2082 0
+-	leal	8(%ebx), %eax
+-	movl	%eax, %edx
+-	movl	%eax, 4(%esp)
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L2033
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L2114
+-.L2033:
++	jle	.L442
+ 	.loc 1 2080 0
+ 	movl	8(%ebx), %eax
+ 	subl	$12, %esp
+-	.cfi_def_cfa_offset 60
++	.cfi_def_cfa_offset 44
++	.loc 1 2072 0
++	addl	$1, %edi
++	addl	$96, %esi
++	.loc 1 2080 0
+ 	addl	$8, %eax
+ 	pushl	%eax
+-	.cfi_def_cfa_offset 64
++	.cfi_def_cfa_offset 48
+ 	call	httpd_ntoa
+-.LVL719:
+ 	addl	$12, %esp
+-	.cfi_def_cfa_offset 52
++	.cfi_def_cfa_offset 36
+ 	pushl	%eax
+-	.cfi_def_cfa_offset 56
+-	pushl	$.LC122
+-	.cfi_def_cfa_offset 60
++	.cfi_def_cfa_offset 40
++	pushl	$.LC118
++	.cfi_def_cfa_offset 44
+ 	pushl	$6
+-	.cfi_def_cfa_offset 64
++	.cfi_def_cfa_offset 48
+ 	call	syslog
+-.LVL720:
+ 	.loc 1 2083 0
+-	movl	$httpd_err408form, %eax
+-	addl	$16, %esp
++	popl	%eax
++	.cfi_def_cfa_offset 44
++	popl	%edx
++	.cfi_def_cfa_offset 40
++	pushl	$.LC60
++	.cfi_def_cfa_offset 44
++	pushl	httpd_err408form
+ 	.cfi_def_cfa_offset 48
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L2034
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jge	.L2115
+-.L2034:
+-	movl	$httpd_err408title, %eax
+-	movl	httpd_err408form, %ecx
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L2035
+-	andl	$7, %eax
+-	addl	$3, %eax
+-	cmpb	%dl, %al
+-	jge	.L2116
+-.L2035:
+-	movl	httpd_err408title, %eax
+-	movl	4(%esp), %edx
+-	movl	%eax, 12(%esp)
+-	movl	%edx, %eax
+-	shrl	$3, %eax
+-	movzbl	536870912(%eax), %eax
+-	testb	%al, %al
+-	je	.L2036
+-	andl	$7, %edx
+-	addl	$3, %edx
+-	cmpb	%al, %dl
+-	jge	.L2117
+-.L2036:
+-	subl	$8, %esp
++	pushl	$.LC60
++	.cfi_def_cfa_offset 52
++	pushl	httpd_err408title
+ 	.cfi_def_cfa_offset 56
+-	.loc 1 2072 0
+-	addl	$1, %edi
+-.LVL721:
+-	addl	$96, %esi
+-	.loc 1 2083 0
+-	pushl	$.LC63
+-	.cfi_def_cfa_offset 60
+-	pushl	%ecx
+-	.cfi_def_cfa_offset 64
+-	pushl	$.LC63
+-	.cfi_def_cfa_offset 68
+-	pushl	32(%esp)
+-	.cfi_def_cfa_offset 72
+ 	pushl	$408
+-	.cfi_def_cfa_offset 76
++	.cfi_def_cfa_offset 60
+ 	pushl	8(%ebx)
+-	.cfi_def_cfa_offset 80
++	.cfi_def_cfa_offset 64
+ 	call	httpd_send_err
+-.LVL722:
+ 	.loc 1 2085 0
+ 	addl	$32, %esp
+-	.cfi_def_cfa_offset 48
++	.cfi_def_cfa_offset 32
+ 	movl	%ebp, %edx
+ 	movl	%ebx, %eax
+ 	call	finish_connection
+-.LVL723:
+ 	.loc 1 2072 0
+ 	cmpl	%edi, max_connects
+-	jg	.L2083
+-.LVL724:
++	jg	.L447
+ 	.p2align 4,,10
+ 	.p2align 3
+-.L2024:
++.L440:
+ 	.loc 1 2100 0
+-	addl	$28, %esp
++	addl	$12, %esp
+ 	.cfi_remember_state
+ 	.cfi_def_cfa_offset 20
+ 	popl	%ebx
+@@ -1638,171 +493,54 @@
+ 	.cfi_restore 5
+ 	.cfi_def_cfa_offset 4
+ 	ret
+-.LVL725:
+ 	.p2align 4,,10
+ 	.p2align 3
+-.L2109:
++.L451:
+ 	.cfi_restore_state
+-	.loc 1 2094 0
+-	leal	8(%ebx), %eax
+-	movl	%eax, %edx
+-	shrl	$3, %edx
+-	movzbl	536870912(%edx), %edx
+-	testb	%dl, %dl
+-	je	.L2040
+-	movl	%eax, %ecx
+-	andl	$7, %ecx
+-	addl	$3, %ecx
+-	cmpb	%dl, %cl
+-	jge	.L2118
+-.L2040:
+ 	.loc 1 2092 0
+ 	movl	8(%ebx), %eax
+ 	subl	$12, %esp
+-	.cfi_def_cfa_offset 60
++	.cfi_def_cfa_offset 44
+ 	addl	$8, %eax
+ 	pushl	%eax
+-	.cfi_def_cfa_offset 64
++	.cfi_def_cfa_offset 48
+ 	call	httpd_ntoa
+-.LVL726:
+ 	addl	$12, %esp
+-	.cfi_def_cfa_offset 52
++	.cfi_def_cfa_offset 36
+ 	pushl	%eax
+-	.cfi_def_cfa_offset 56
+-	pushl	$.LC123
+-	.cfi_def_cfa_offset 60
++	.cfi_def_cfa_offset 40
++	pushl	$.LC119
++	.cfi_def_cfa_offset 44
+ 	pushl	$6
+-	.cfi_def_cfa_offset 64
++	.cfi_def_cfa_offset 48
+ 	call	syslog
+-.LVL727:
+ 	.loc 1 2095 0
+ 	movl	%ebp, %edx
+ 	movl	%ebx, %eax
+ 	call	clear_connection
+-.LVL728:
+ 	addl	$16, %esp
+-	.cfi_def_cfa_offset 48
+-	jmp	.L2027
+-.L2118:
+-	.loc 1 2094 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 60
+-	pushl	%eax
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL729:
+-.L2117:
+-	.cfi_restore_state
+-	.loc 1 2083 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 60
+-	pushl	16(%esp)
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL730:
+-.L2116:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 60
+-	pushl	$httpd_err408title
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL731:
+-.L2115:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 60
+-	pushl	$httpd_err408form
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL732:
+-.L2114:
+-	.cfi_restore_state
+-	.loc 1 2082 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 60
+-	pushl	16(%esp)
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL733:
+-.L2113:
+-	.cfi_restore_state
+-	.loc 1 2078 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 60
+-	pushl	%edx
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL734:
+-.L2112:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 60
+-	pushl	%ebp
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL735:
+-.L2108:
+-	.cfi_restore_state
+-	.loc 1 2090 0
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 60
+-	pushl	%edx
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL736:
+-.L2107:
+-	.cfi_restore_state
+-	subl	$12, %esp
+-	.cfi_remember_state
+-	.cfi_def_cfa_offset 60
+-	pushl	%ebp
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL737:
+-.L2110:
+-	.cfi_restore_state
+-	.loc 1 2075 0
+-	subl	$12, %esp
+-	.cfi_def_cfa_offset 60
+-	pushl	%ebx
+-	.cfi_def_cfa_offset 64
+-	call	__asan_report_load4
+-.LVL738:
++	.cfi_def_cfa_offset 32
++	jmp	.L442
+ 	.cfi_endproc
+ .LFE27:
+ 	.size	idle, .-idle
+ 	.section	.text.unlikely
+-.LCOLDE124:
++.LCOLDE120:
+ 	.text
+-.LHOTE124:
+-	.section	.rodata.str1.1
+-.LC125:
+-	.string	"1 32 16 2 iv "
+-	.section	.rodata
+-	.align 32
+-.LC126:
++.LHOTE120:
++	.section	.rodata.str1.4
++	.align 4
++.LC121:
+ 	.string	"replacing non-null wakeup_timer!"
+-	.zero	63
+-	.align 32
+-.LC127:
++	.align 4
++.LC122:
+ 	.string	"tmr_create(wakeup_connection) failed"
+-	.zero	59
+-	.align 32
+-.LC128:
++	.section	.rodata.str1.1
++.LC123:
+ 	.string	"write - %m sending %.80s"
+-	.zero	39
+ 	.section	.text.unlikely
+-.LCOLDB129:
++.LCOLDB124:
+ 	.text
+-.LHOTB129:
++.LHOTB124:
+ 	.p2align 4,,15
+ 	.type	handle_send, @function
+\ No newline at end of file

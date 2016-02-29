@@ -1,0 +1,202 @@
+= Start
+@ ./omp:[0x4017e8] + 0x18115f0 0x20000
+@ /lib64/libc.so.6:[0x3cb5466ecb] + 0x1831600 0x238
+@ /lib64/libc.so.6:[0x3cb5466ecb] + 0x1831840 0x238
+@ ./omp:[0x401874] + 0x7f03057bc010 0x1000000
+@ ./omp:[0x402f4c] + 0x7f03047bb010 0x1000000
+@ ./omp:[0x40322d] - 0x7f03047bb010
+@ ./omp:[0x400d6d] + 0x1831a80 0x144
+@ ./omp:[0x40123f] + 0x1831bd0 0x450
+@ ./omp:[0x401272] + 0x1832030 0x40000
+@ ./omp:[0x40127d] + 0x1872040 0x40000
+@ ./omp:[0x40128d] + 0x18b2050 0x40000
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f3130 0xc0
+@ /usr/lib64/libgomp.so.1:[0x3cc5804269] + 0x18f3200 0x88
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f3290 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f33c0 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f34f0 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f3620 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f3750 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f3880 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f39b0 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f3ae0 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f3c10 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f3d40 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f3e70 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f3fa0 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f40d0 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f4200 0x120
+@ /lib64/ld-linux-x86-64.so.2:(_dl_allocate_tls+0x33)[0x3cb5011953] + 0x18f4330 0x120
+@ ./omp:[0x4012bd] + 0x18f4460 0x40000
+@ ./omp:[0x4012cd] + 0x1934470 0x40000
+@ ./omp:[0x4012dd] + 0x1974480 0x40000
+@ ./omp:[0x4012ed] + 0x19b4490 0x40000
+@ ./omp:[0x4012f8] + 0x19f44a0 0x40000
+@ ./omp:[0x401319] + 0x1a344b0 0x8a0000
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x18f2060 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x22d44c0
+@ /usr/lib64/libgomp.so.1:[0x3cc58042b9] + 0x22d44c0 0x10c0
+@ /usr/lib64/libgomp.so.1:[0x3cc580cdfa] - 0x18f2060
+@ ./omp:[0x401726] - 0x1831a80
+@ ./omp:[0x401733] - 0x1831bd0
+@ ./omp:[0x40173b] - 0x1832030
+@ ./omp:[0x401748] - 0x18f4460
+@ ./omp:[0x401755] - 0x1934470
+@ ./omp:[0x401762] - 0x1974480
+@ ./omp:[0x40176f] - 0x1872040
+@ ./omp:[0x401779] - 0x18b2050
+@ ./omp:[0x401781] - 0x19b4490
+@ ./omp:[0x40178e] - 0x19f44a0
+@ ./omp:[0x40179b] - 0x1a344b0
+@ /lib64/libc.so.6:(fclose+0x14d)[0x3cb54664cd] - 0x1831600
+@ /lib64/libc.so.6:(fclose+0x14d)[0x3cb54664cd] - 0x1831840
+@ ./omp:[0x4018fd] - 0x18115f0
+@ ./omp:[0x401905] - 0x7f03057bc010
+= End

@@ -1,0 +1,17 @@
+For trace1:
+	"gdb --args ~eggert/bin32/bin/emacs-24.5 -batch -eval '(print (* 37 -26))'" to open the gdb debugger.
+For trace2:
+	"$ gdb --args ~eggert/bin64/bin/emacs-24.5 -batch -eval '(print (* 37 -26))'"
+For trace3:
+	"$ gdb --args ~eggert/bin32/bin/emacs-24.5 -batch -eval '(print (* most-positive-fixnum most-positive-fixnum))'"
+
+Then:
+(gdb) set disassemble-next-line on
+(gdb) break Ftimes
+(gdb) run
+to debug in assembly code
+
+Repeat the commands:
+(gdb) si
+(gdb) info registers
+to see the next instruction to be implemented and the value changes in registers

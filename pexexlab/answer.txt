@@ -1,0 +1,75 @@
+1. Explain why the instructions in the third trace did not produce the correct mathematical result. Which instructions caused the problem, exactly?
+There is an overflow on the instruction:
+0x8120aab <arith_driver+395>:	imul %ecx,%esi	esi=0xc0000001
+ecx was 0x1fffffff, but after the imul, esi becomes a negative number, which is obviously an overflow.
+
+2. If you just count instructions, which trace is the most efficient and why?
+Trace 3 is the most efficient. Actually trace 1 and trace 3 are quite close to each other. However trace 2 obviously has a few more lines than them. This is because trace 2 runs in x86-64, and uses more registers than trace 1 and 3.
+
+3. Similarly, which is the least efficient and why?
+Trace 2 is the least efficient. Because it runs on x86-64, it uses more instructions and more registers than x86.
+For example, at the beginning of the function, the x86-64's assembly code is:
+0x4e8b50 <arith_driver+0>data4c:2577	push %r15	M[0x7fffffffda70]=0xaf2b72 rsp=0x7fffffffda70
+0x4e8b52 <arith_driver+2>data74:2577	push %r14	M[0x7fffffffda68]=0x7fffffffda80 rsp=0x7fffffffda68
+0x4e8b54 <arith_driver+4>data7c:2577	push %r13	M[0x7fffffffda60]=0x180 rsp=0x7fffffffda60
+0x4e8b56 <arith_driver+6>data.7:2577	push %r12	M[0x7fffffffda58]=0xa69c90 rsp=0x7fffffffda58
+0x4e8b58 <arith_driver+8>data.c:2577	push %rbp	M[0x7fffffffda50]=0x7fffffffdb40 rsp=0x7fffffffda50
+0x4e8b59 <arith_driver+9>data.c:2593	mov $0x1,%ebp	ebp=0x1
+0x4e8b5e <arith_driver+14>data.c:2577	push %rbx	M[0x7fffffffda48]=0x7fffffffda90 rsp=0x7fffffffda48
+while the x86's is:
+0x08120920 <arith_driver+0>data.c:2577	push %ebp	M[0xffffcd28]=0xffffcdc8 esp=0xffffcd28
+0x08120921 <arith_driver+1>data.c:2577	push %edi	M[0xffffcd24]=0x84073c2 esp=0xffffcd24
+0x08120922 <arith_driver+2>data.c:2577	push %esi	M[0xffffcd20]=0x83ad290 esp=0xffffcd20
+0x08120923 <arith_driver+3>data.c:2593	mov $0x1,%esi esi=0x1
+0x08120928 <arith_driver+8>data.c:2577	push %ebx	M[0xffffcd1c]=2 esp=0xffffcd1c
+x86 uses two fewer push and registers than x86-64.
+Another example, when doing xor, x86-64 has the following code:
+0x4e8b8a <arith_driver+58>data.c:2602	xor %ecx,%ecx	rcx=0x0
+0x4e8b8c <arith_driver+60>data.c:2602	xor %ebx,%ebx	rbx=0x0
+0x4e8b8e <arith_driver+62>data.c:2602	xor %r12d,%r12d	r12=0x0
+while x86 has the following:
+0x0812094c <arith_driver+44>data.c:2602	xor %ebx,%ebx	ebx=0x0
+0x0812094e <arith_driver+46>data.c:2602	xor %edi,%edi	edi=0x0
+which again is one fewer instruction.
+
+4. Where did the number 536870911 come from? Explain in terms of the Emacs source code.
+MOST_POSITIVE_FIXNUM (EMACS_INT_MAX >> INTTYPEBITS)
+EMACS_INT_MAX - maximum value of EMACS_INT
+#ifndef EMACS_INT_MAX
+# if INTPTR_MAX <= 0
+#  error "INTPTR_MAX misconfigured"
+# elif INTPTR_MAX <= INT_MAX && !defined WIDE_EMACS_INT
+typedef int EMACS_INT;
+typedef unsigned int EMACS_UINT;
+#  define EMACS_INT_MAX INT_MAX
+#  define pI ""
+# elif INTPTR_MAX <= LONG_MAX && !defined WIDE_EMACS_INT
+typedef long int EMACS_INT;
+typedef unsigned long EMACS_UINT;
+#  define EMACS_INT_MAX LONG_MAX
+#  define pI "l"
+# elif INTPTR_MAX <= LLONG_MAX
+typedef long long int EMACS_INT;
+typedef unsigned long long int EMACS_UINT;
+#  define EMACS_INT_MAX LLONG_MAX
+#  define pI "ll"
+# else
+#  error "INTPTR_MAX too large"
+# endif
+#endif
+INTTYPEBITS = GCTYPEBITS - 1
+ GCTYPEBITS =
+#define GCTYPEBITS 3
+        GCTYPEBITS,
+
+5. The two Emacs executables were compiled with GCC's -O2 option. Suppose they had also been compiled with -ftrapv. Explain any problems the traces would run into, or if there would not be a problem explain why not.
+-ftrapv will crash/trap the program when there is an overflow.
+
+6. Similarly, discuss whether and how -fwrapv would have caused problems.
+-fwrapv will not abort the program when there is an overflow, but simply throw away the top bits without any checking. Thus it may give the user a wrong answer without any warning.
+
+7. Suppose we assume -fwrapv is used. Suggest changes to how Emacs does integer multiplication that should help improve its performance. Focus on just the integer multiplication; don't alter the machinery Emacs uses to decide which flavor of multiplication to do.
+Emacs does not need to check overflow, since under -fwrapv higher bits are thrown away in the end.
+
+8. How significant are the efficiency differences discussed above, in the context of Emacs execution?
+They can be significant if it there are a lot of arithmetic operations, since every time the program does arithmetics, it keeps checking overflow.

@@ -1,0 +1,41 @@
+I first added "#pragma parallel for" for all of the for loops. Then I found 
+that it could not compile successfully. After carefully examining the code, I 
+found that in func1, I need to make j, index_X and index_Y private. Then I 
+compiled again, it succeeded. Now since the seasnet server is not stable, I 
+ran seq and omp several times to compare their performance. It turns out that 
+seq's best performance is 0.79s, while omp is 0.12s. I tried to make omp 
+faster, so I used gprof to examine the function calls. I found that I can hoist
+ round out of the loop to make the calls to round significantly fewer, so I did
+ that. Also, I made some subtle optimizations such as avoiding typecasting 
+multiple times by decalaring a variable "double dO = (double)Ones" and reduced
+ some repeated calculations such as "double w = 1/n". After that, the lowest 
+FUNC TIME I achieve is 0.08s.
+
+
+The following is my Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total
+ time   seconds   seconds    calls  ms/call  ms/call  name
+ 67.99      1.27     1.27       18    70.63    96.77  main
+ 11.24      1.48     0.21  4289512     0.00     0.00  rand2
+  7.23      1.62     0.14  8615053     0.00     0.00  rand1
+  4.01      1.69     0.08    28989     0.00     0.00  findIndexBin
+  2.68      1.74     0.05        1    50.05   387.76  addSeed
+  1.61      1.77     0.03        2    15.02    15.02  init
+  1.61      1.80     0.03        1    30.03    30.03  imdilateDisk
+  1.07      1.82     0.02        1    20.02    20.02  fillMatrix
+  1.07      1.84     0.02        1    20.02    40.04  filter
+  0.54      1.85     0.01       18     0.56     4.73  func1
+  0.54      1.86     0.01        1    10.01   457.83  sequence
+  0.27      1.87     0.01   100115     0.00     0.00  round
+  0.27      1.87     0.01                             findIndex
+  0.00      1.87     0.00       30     0.00     0.00  func5
+  0.00      1.87     0.00       16     0.00     0.00  dilateMatrix
+  0.00      1.87     0.00       15     0.00     0.00  func2
+  0.00      1.87     0.00       15     0.00     0.00  func3
+  0.00      1.87     0.00       15     0.00     0.00  func4
+  0.00      1.87     0.00        4     0.00     0.00  get_time
+  0.00      1.87     0.00        2     0.00     0.00  elapsed_time
+  0.00      1.87     0.00        1     0.00     0.00  func0
+  0.00      1.87     0.00        1     0.00     0.00  getNeighbors

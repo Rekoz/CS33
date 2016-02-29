@@ -1,0 +1,546 @@
+handle_read:
+.LFB18:
+	.loc 1 1586 0
+	.cfi_startproc
+.LVL375:
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	pushl	%edi
+	.cfi_def_cfa_offset 12
+	.cfi_offset 7, -12
+	movl	%edx, %edi
+	pushl	%esi
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushl	%ebx
+	.cfi_def_cfa_offset 20
+	.cfi_offset 3, -20
+	movl	%eax, %esi
+	subl	$12, %esp
+	.cfi_def_cfa_offset 32
+	.loc 1 1589 0
+	movl	8(%eax), %ebx
+.LVL376:
+	.loc 1 1592 0
+	movl	144(%ebx), %eax
+.LVL377:
+	movl	140(%ebx), %ecx
+	cmpl	%ecx, %eax
+	jb	.L406
+	.loc 1 1594 0
+	cmpl	$5000, %ecx
+	jbe	.L434
+.LVL378:
+.L433:
+	.loc 1 1637 0
+	subl	$8, %esp
+	.cfi_def_cfa_offset 40
+	pushl	$.LC60
+	.cfi_def_cfa_offset 44
+	pushl	httpd_err400form
+	.cfi_def_cfa_offset 48
+	pushl	$.LC60
+	.cfi_def_cfa_offset 52
+	pushl	httpd_err400title
+	.cfi_def_cfa_offset 56
+	pushl	$400
+	.cfi_def_cfa_offset 60
+.L432:
+	.loc 1 1652 0
+	pushl	%ebx
+	.cfi_def_cfa_offset 64
+	call	httpd_send_err
+.LVL379:
+	.loc 1 1654 0
+	movl	%edi, %edx
+	movl	%esi, %eax
+	.loc 1 1703 0
+	addl	$44, %esp
+	.cfi_def_cfa_offset 20
+.LVL380:
+.L429:
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+.LBB3:
+	.loc 1 1685 0
+	jmp	finish_connection
+.LVL381:
+	.p2align 4,,10
+	.p2align 3
+.L434:
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -20
+	.cfi_offset 5, -8
+	.cfi_offset 6, -16
+	.cfi_offset 7, -12
+.LBE3:
+	.loc 1 1600 0
+	leal	140(%ebx), %eax
+	subl	$4, %esp
+	.cfi_def_cfa_offset 36
+	addl	$1000, %ecx
+	pushl	%ecx
+	.cfi_def_cfa_offset 40
+	pushl	%eax
+	.cfi_def_cfa_offset 44
+	leal	136(%ebx), %eax
+	pushl	%eax
+	.cfi_def_cfa_offset 48
+	call	httpd_realloc_str
+.LVL382:
+	movl	140(%ebx), %ecx
+	movl	144(%ebx), %eax
+	addl	$16, %esp
+	.cfi_def_cfa_offset 32
+.L406:
+	.loc 1 1605 0
+	subl	$4, %esp
+	.cfi_def_cfa_offset 36
+	subl	%eax, %ecx
+	pushl	%ecx
+	.cfi_def_cfa_offset 40
+	addl	136(%ebx), %eax
+	pushl	%eax
+	.cfi_def_cfa_offset 44
+	pushl	448(%ebx)
+	.cfi_def_cfa_offset 48
+	call	read
+.LVL383:
+	.loc 1 1608 0
+	addl	$16, %esp
+	.cfi_def_cfa_offset 32
+	testl	%eax, %eax
+	je	.L433
+	.loc 1 1614 0
+	js	.L435
+	.loc 1 1628 0
+	addl	%eax, 144(%ebx)
+	.loc 1 1629 0
+	movl	(%edi), %eax
+.LVL384:
+	.loc 1 1632 0
+	subl	$12, %esp
+	.cfi_def_cfa_offset 44
+	pushl	%ebx
+	.cfi_def_cfa_offset 48
+	.loc 1 1629 0
+	movl	%eax, 68(%esi)
+	.loc 1 1632 0
+	call	httpd_got_request
+.LVL385:
+	addl	$16, %esp
+	.cfi_def_cfa_offset 32
+	testl	%eax, %eax
+	je	.L405
+	cmpl	$2, %eax
+	je	.L433
+	.loc 1 1643 0
+	subl	$12, %esp
+	.cfi_def_cfa_offset 44
+	pushl	%ebx
+	.cfi_def_cfa_offset 48
+	call	httpd_parse_request
+.LVL386:
+	addl	$16, %esp
+	.cfi_def_cfa_offset 32
+	testl	%eax, %eax
+	js	.L430
+	.loc 1 1650 0
+	movl	%esi, %eax
+	call	check_throttles
+.LVL387:
+	testl	%eax, %eax
+	je	.L436
+	.loc 1 1659 0
+	subl	$8, %esp
+	.cfi_def_cfa_offset 40
+	pushl	%edi
+	.cfi_def_cfa_offset 44
+	pushl	%ebx
+	.cfi_def_cfa_offset 48
+	call	httpd_start_request
+.LVL388:
+	addl	$16, %esp
+	.cfi_def_cfa_offset 32
+	testl	%eax, %eax
+	js	.L430
+	.loc 1 1667 0
+	movl	336(%ebx), %edx
+	testl	%edx, %edx
+	je	.L416
+	.loc 1 1669 0
+	movl	344(%ebx), %eax
+	movl	%eax, 92(%esi)
+	.loc 1 1670 0
+	movl	348(%ebx), %eax
+	addl	$1, %eax
+	movl	%eax, 88(%esi)
+.L417:
+	.loc 1 1678 0
+	movl	452(%ebx), %eax
+	testl	%eax, %eax
+	je	.L437
+	.loc 1 1688 0
+	movl	88(%esi), %eax
+	cmpl	%eax, 92(%esi)
+	jl	.L438
+.LVL389:
+.L430:
+.LBB4:
+	.loc 1 1685 0
+	movl	%edi, %edx
+	movl	%esi, %eax
+.LBE4:
+	.loc 1 1703 0
+	addl	$12, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	jmp	.L429
+.LVL390:
+.L438:
+	.cfi_restore_state
+	.loc 1 1697 0
+	movl	(%edi), %eax
+	.loc 1 1701 0
+	subl	$12, %esp
+	.cfi_def_cfa_offset 44
+	pushl	448(%ebx)
+	.cfi_def_cfa_offset 48
+	.loc 1 1696 0
+	movl	$2, (%esi)
+	.loc 1 1698 0
+	movl	$0, 80(%esi)
+.LVL391:
+	.loc 1 1697 0
+	movl	%eax, 64(%esi)
+	.loc 1 1701 0
+	call	fdwatch_del_fd
+.LVL392:
+	.loc 1 1702 0
+	addl	$12, %esp
+	.cfi_def_cfa_offset 36
+	pushl	$1
+	.cfi_def_cfa_offset 40
+	pushl	%esi
+	.cfi_def_cfa_offset 44
+	pushl	448(%ebx)
+	.cfi_def_cfa_offset 48
+	call	fdwatch_add_fd
+.LVL393:
+	addl	$16, %esp
+	.cfi_def_cfa_offset 32
+.LVL394:
+	.p2align 4,,10
+	.p2align 3
+.L405:
+	.loc 1 1703 0
+	addl	$12, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+.LVL395:
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+.LVL396:
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+.LVL397:
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret
+.LVL398:
+	.p2align 4,,10
+	.p2align 3
+.L435:
+	.cfi_restore_state
+	.loc 1 1621 0
+	call	__errno_location
+.LVL399:
+	movl	(%eax), %eax
+	cmpl	$11, %eax
+	je	.L405
+	cmpl	$4, %eax
+	jne	.L433
+	jmp	.L405
+	.p2align 4,,10
+	.p2align 3
+.L436:
+	.loc 1 1652 0
+	subl	$8, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	pushl	172(%ebx)
+	.cfi_def_cfa_offset 44
+	pushl	httpd_err503form
+	.cfi_def_cfa_offset 48
+	pushl	$.LC60
+	.cfi_def_cfa_offset 52
+	pushl	httpd_err503title
+	.cfi_def_cfa_offset 56
+	pushl	$503
+	.cfi_def_cfa_offset 60
+	jmp	.L432
+	.p2align 4,,10
+	.p2align 3
+.L416:
+	.cfi_restore_state
+	.loc 1 1672 0
+	movl	164(%ebx), %eax
+	.loc 1 1673 0
+	movl	$0, %edx
+	testl	%eax, %eax
+	cmovs	%edx, %eax
+	movl	%eax, 88(%esi)
+	jmp	.L417
+.L437:
+.LVL400:
+.LBB5:
+	.loc 1 1682 0 discriminator 1
+	movl	52(%esi), %edx
+	testl	%edx, %edx
+	jle	.L439
+	movl	throttles, %ecx
+	movl	168(%ebx), %ebx
+.LVL401:
+	leal	12(%esi), %eax
+	leal	12(%esi,%edx,4), %ebp
+.LVL402:
+	.p2align 4,,10
+	.p2align 3
+.L422:
+	.loc 1 1683 0 discriminator 3
+	movl	(%eax), %edx
+	addl	$4, %eax
+	leal	(%edx,%edx,2), %edx
+	addl	%ebx, 16(%ecx,%edx,8)
+	.loc 1 1682 0 discriminator 3
+	cmpl	%ebp, %eax
+	jne	.L422
+.L421:
+	.loc 1 1684 0
+	movl	%ebx, 92(%esi)
+	jmp	.L430
+.LVL403:
+.L439:
+	movl	168(%ebx), %ebx
+.LVL404:
+	jmp	.L421
+.LBE5:
+	.cfi_endproc
+.LFE18:
+	.size	handle_read, .-handle_read
+	.section	.text.unlikely
+.LCOLDE117:
+	.text
+.LHOTE117:
+	.section	.rodata.str1.4
+	.align 4
+.LC118:
+	.string	"%.80s connection timed out reading"
+	.align 4
+.LC119:
+	.string	"%.80s connection timed out sending"
+	.section	.text.unlikely
+.LCOLDB120:
+	.text
+.LHOTB120:
+	.p2align 4,,15
+	.type	idle, @function
+idle:
+.LFB27:
+	.loc 1 2068 0
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	pushl	%edi
+	.cfi_def_cfa_offset 12
+	.cfi_offset 7, -12
+	.loc 1 2072 0
+	xorl	%edi, %edi
+	.loc 1 2068 0
+	pushl	%esi
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushl	%ebx
+	.cfi_def_cfa_offset 20
+	.cfi_offset 3, -20
+	.loc 1 2072 0
+	xorl	%esi, %esi
+	.loc 1 2068 0
+	subl	$12, %esp
+	.cfi_def_cfa_offset 32
+	.loc 1 2072 0
+	movl	max_connects, %ecx
+	.loc 1 2068 0
+	movl	36(%esp), %ebp
+	.loc 1 2072 0
+	testl	%ecx, %ecx
+	jg	.L447
+	jmp	.L440
+	.p2align 4,,10
+	.p2align 3
+.L452:
+	.loc 1 2075 0
+	jl	.L442
+	cmpl	$3, %eax
+	jg	.L442
+	.loc 1 2090 0
+	movl	0(%ebp), %eax
+	subl	68(%ebx), %eax
+	cmpl	$299, %eax
+	jg	.L451
+.L442:
+	.loc 1 2072 0 discriminator 2
+	addl	$1, %edi
+	addl	$96, %esi
+	cmpl	%edi, max_connects
+	jle	.L440
+.L447:
+	.loc 1 2074 0
+	movl	connects, %ebx
+	addl	%esi, %ebx
+	.loc 1 2075 0
+	movl	(%ebx), %eax
+	cmpl	$1, %eax
+	jne	.L452
+	.loc 1 2078 0
+	movl	0(%ebp), %eax
+	subl	68(%ebx), %eax
+	cmpl	$59, %eax
+	jle	.L442
+	.loc 1 2080 0
+	movl	8(%ebx), %eax
+	subl	$12, %esp
+	.cfi_def_cfa_offset 44
+	.loc 1 2072 0
+	addl	$1, %edi
+	addl	$96, %esi
+	.loc 1 2080 0
+	addl	$8, %eax
+	pushl	%eax
+	.cfi_def_cfa_offset 48
+	call	httpd_ntoa
+	addl	$12, %esp
+	.cfi_def_cfa_offset 36
+	pushl	%eax
+	.cfi_def_cfa_offset 40
+	pushl	$.LC118
+	.cfi_def_cfa_offset 44
+	pushl	$6
+	.cfi_def_cfa_offset 48
+	call	syslog
+	.loc 1 2083 0
+	popl	%eax
+	.cfi_def_cfa_offset 44
+	popl	%edx
+	.cfi_def_cfa_offset 40
+	pushl	$.LC60
+	.cfi_def_cfa_offset 44
+	pushl	httpd_err408form
+	.cfi_def_cfa_offset 48
+	pushl	$.LC60
+	.cfi_def_cfa_offset 52
+	pushl	httpd_err408title
+	.cfi_def_cfa_offset 56
+	pushl	$408
+	.cfi_def_cfa_offset 60
+	pushl	8(%ebx)
+	.cfi_def_cfa_offset 64
+	call	httpd_send_err
+	.loc 1 2085 0
+	addl	$32, %esp
+	.cfi_def_cfa_offset 32
+	movl	%ebp, %edx
+	movl	%ebx, %eax
+	call	finish_connection
+	.loc 1 2072 0
+	cmpl	%edi, max_connects
+	jg	.L447
+	.p2align 4,,10
+	.p2align 3
+.L440:
+	.loc 1 2100 0
+	addl	$12, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L451:
+	.cfi_restore_state
+	.loc 1 2092 0
+	movl	8(%ebx), %eax
+	subl	$12, %esp
+	.cfi_def_cfa_offset 44
+	addl	$8, %eax
+	pushl	%eax
+	.cfi_def_cfa_offset 48
+	call	httpd_ntoa
+	addl	$12, %esp
+	.cfi_def_cfa_offset 36
+	pushl	%eax
+	.cfi_def_cfa_offset 40
+	pushl	$.LC119
+	.cfi_def_cfa_offset 44
+	pushl	$6
+	.cfi_def_cfa_offset 48
+	call	syslog
+	.loc 1 2095 0
+	movl	%ebp, %edx
+	movl	%ebx, %eax
+	call	clear_connection
+	addl	$16, %esp
+	.cfi_def_cfa_offset 32
+	jmp	.L442
+	.cfi_endproc
+.LFE27:
+	.size	idle, .-idle
+	.section	.text.unlikely
+.LCOLDE120:
+	.text
+.LHOTE120:
+	.section	.rodata.str1.4
+	.align 4
+.LC121:
+	.string	"replacing non-null wakeup_timer!"
+	.align 4
+.LC122:
+	.string	"tmr_create(wakeup_connection) failed"
+	.section	.rodata.str1.1
+.LC123:
+	.string	"write - %m sending %.80s"
+	.section	.text.unlikely
+.LCOLDB124:
+	.text
+.LHOTB124:
+	.p2align 4,,15
+	.type	handle_send, @function
